@@ -28,29 +28,4 @@ public static class ApplicationServiceExtensions
         builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<List.Handler>());
         builder.Services.AddAutoMapper(typeof(MappingProfiles).Assembly);
     }
-    
-    // public static IServiceCollection AddApplicationServices(this IServiceCollection services, 
-    //     IConfiguration config, String corsPolicyName)
-    // {
-    //     services.AddEndpointsApiExplorer();
-    //     services.AddSwaggerGen();
-    //     services.AddDbContext<DataContext>(opt =>
-    //     {
-    //         opt.UseSqlite(config.GetConnectionString("DefaultConnection"));
-    //     });
-    //     services.AddCors(opt =>
-    //     {
-    //         opt.AddPolicy(corsPolicyName,
-    //             policy =>
-    //             {
-    //                 policy.WithOrigins("http://localhost:3000")
-    //                     .AllowAnyHeader()
-    //                     .AllowAnyMethod();
-    //             });
-    //     });
-    //     services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<List.Handler>());
-    //     services.AddAutoMapper(typeof(MappingProfiles).Assembly);
-    //     
-    //     return services;
-    // }
 }
