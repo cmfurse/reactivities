@@ -11,7 +11,7 @@ import ActivityDetailsSidebar from "./ActivityDetailsSidebar";
 
 export default observer(function ActivityDetails() {
     const {activityStore} = useStore();
-    const {selectedActivity, loadActivity, loadingInitial} = activityStore;
+    const {selectedActivity: activity, loadActivity, loadingInitial} = activityStore;
     const {id} = useParams();
 
     useEffect(() => {
@@ -20,17 +20,17 @@ export default observer(function ActivityDetails() {
         }
     }, [id, loadActivity]);
 
-    if (loadingInitial || !selectedActivity) return <LoadingComponent />;
+    if (loadingInitial || !activity) return <LoadingComponent />;
 
     return (
         <Grid>
             <Grid.Column width={10}>
-                <ActivityDetailsHeader activity={selectedActivity} />
-                <ActivityDetailsInfo activity={selectedActivity} />
+                <ActivityDetailsHeader activity={activity} />
+                <ActivityDetailsInfo activity={activity} />
                 <ActivityDetailsChat />
             </Grid.Column>
             <Grid.Column width={6}>
-                <ActivityDetailsSidebar />
+                <ActivityDetailsSidebar activity={activity}/>
             </Grid.Column>
         </Grid>
     );
