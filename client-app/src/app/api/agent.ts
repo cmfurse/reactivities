@@ -53,8 +53,8 @@ axios.interceptors.response.use(async response => {
             router.navigate('/not-found');
             break;
         case 500:
+            toast.error(data.message);
             store.commonStore.setServerError(data);
-            router.navigate('/server-error');
             break;
     }
     return Promise.reject(error);
